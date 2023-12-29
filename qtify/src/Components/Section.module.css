@@ -6,3 +6,8 @@
 .section {
     margin: 32px;
 }
+.lineBreak {
+    height: 1px;
+    background-color: var(--color-primary);
+    margin: 5px 5px;
+}

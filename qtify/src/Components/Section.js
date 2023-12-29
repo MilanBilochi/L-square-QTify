@@ -6,11 +6,13 @@ import AlbumCard from "./AlbumCard"
 import axios from 'axios'
 
 export default function Section() {
-    const [albumData, setAlbumData] = useState([])
+    const [topAlbumData, setTopAlbumData] = useState([])
+    const [newAlbumData, setNewAlbumData] = useState([])
     useEffect(() => {
-        getAlbumData();
+        getTopAlbumData();
+        getNewAlbumData();
     }, [])
-    const getAlbumData = async () => {
+    const getNewAlbumData = async () => {
         let response = await axios.get('https://qtify-backend-labs.crio.do/albums/top')
             .then((response) => {
                 if (response.status >= 200 && response.status < 300) {
@@ -24,7 +26,25 @@ export default function Section() {
                 return null
             })
         if (response !== null) {
-            setAlbumData(response);
+            setNewAlbumData(response);
+            console.log(JSON.stringify(response[0].image))
+        }
+    }
+    const getTopAlbumData = async () => {
+        let response = await axios.get('https://qtify-backend-labs.crio.do/albums/top')
+            .then((response) => {
+                if (response.status >= 200 && response.status < 300) {
+                    return response.data;
+                } else {
+                    throw new Error("API Failed")
+                }
+            })
+            .catch((error) => {
+                console.log('Milan Error : ' + error.message)
+                return null
+            })
+        if (response !== null) {
+            setTopAlbumData(response);
             console.log(JSON.stringify(response[0].image))
         }
     }
@@ -35,7 +55,21 @@ export default function Section() {
                 <Button buttonText="Collapse" />
             </div>
             <Grid container spacing={2}>
-                {albumData.map((val) => {
+                {topAlbumData.map((val) => {
+                    return (
+                        <Grid item xs={12 / 7} key={val.id}>
+                            <AlbumCard img={val.image} followers={val.follows} name={val.title}/>
+                        </Grid>
+                    )
+                })}
+            </Grid>
+            <div className={styles.lineBreak}></div>
+            <div className={styles.sectionHeader}>
+                <label>New Albums</label>
+                <Button buttonText="Collapse" />
+            </div>
+            <Grid container spacing={2}>
+                {newAlbumData.map((val) => {
                     return (
                         <Grid item xs={12 / 7} key={val.id}>
                             <AlbumCard img={val.image} followers={val.follows} name={val.title}/>
