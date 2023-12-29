@@ -1,0 +1,8 @@
+.sectionHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.section {
+    margin: 32px;
+}

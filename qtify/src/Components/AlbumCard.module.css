@@ -1,0 +1,35 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 159px;
+    height: 232px;
+    /* remove bg color after development */
+
+    background-color: var(--color-black);
+}
+
+.firstLayer {
+
+    width: 100%;
+    height: 170px;
+    border-radius: 12px 12px 0 0;
+
+    /* remove bg colot after development */
+    background-color: blue;
+}
+.chipsHome {
+    padding: 6px;
+    background-color: var(--color-white);
+    border-radius: 0 0 12px 12px;
+}
+.chip {
+    font-size: xx-small!important;
+    background-color: var(--color-black)!important;
+    color: var(--color-white)!important;
+}
+.cardTitle {
+    font-size: small;
+}
+.cardImg {
+    width: 100%;
+}
