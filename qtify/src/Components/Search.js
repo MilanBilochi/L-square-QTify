@@ -9,7 +9,7 @@ export default function Search() {
     return (
         <>
             <form onSubmit={onSubmit} className={styles.wrapper}>
-                <input className={styles.search} placeholder="Search a song if your choice" />
+                <input className={styles.search} placeholder="Search a song of your choice" />
                 <button className={styles.searchButton}>
                     <SearchIcon />
                 </button>

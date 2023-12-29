@@ -1,6 +1,6 @@
 :root {
   --color-primary: #34c94b;
-  ---color-black: #121212;
+  --color-black: #121212;
   --color-white: #FFFFFF;
 }
 *,
@@ -18,7 +18,7 @@ body {
   font-family:"Poppins" , sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  background-color: var(---color-black);
+  background-color: var(--color-black);
   color: var(--color-white);
 }
 img, picture, video, canvas, svg {
