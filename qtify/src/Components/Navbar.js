@@ -1,14 +1,14 @@
 import React from "react"
-import styles from "./Header.module.css"
+import styles from "./Navbar.module.css"
 import Search from "./Search"
 import Button from "./Button"
-export default function Header() {
+import Logo from "./Logo"
+
+export default function Navbar() {
     return (
         <>
           <div className={styles.header}>
-            <div className={styles.logo}>
-              <div><h1>Q<span>Tify</span></h1></div>
-            </div>
+            <Logo />
             <Search />
             <Button buttonText="Give Feedback"/>
           </div>

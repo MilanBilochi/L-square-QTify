@@ -1,12 +1,10 @@
 import './App.css';
-import Button from './Components/Button';
-import Search from './Components/Search';
-import Header from "./Components/Header"
+import Navbar from "./Components/Navbar"
 function App() {
   return (
     <>
       <div>
-        <Header />
+        <Navbar />
       </div>
     </>
   );
