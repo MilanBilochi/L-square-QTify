@@ -1,0 +1,11 @@
+.heroSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-black);
+    width: 100vw;
+}
+.heroText {
+    font-size: 32px;
+    font-weight: 600;
+}
