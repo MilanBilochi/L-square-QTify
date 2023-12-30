@@ -4,10 +4,15 @@ import Button from "./Button"
 import Grid from "@mui/material/Grid"
 import AlbumCard from "./AlbumCard"
 import axios from 'axios'
+import Carousel from "./Carousel"
 
 export default function Section() {
     const [topAlbumData, setTopAlbumData] = useState([])
     const [newAlbumData, setNewAlbumData] = useState([])
+    const [buttonText, setButtonText] = useState('Show All');
+    const [newAlbumButtonText, setNewAlbumButtonText] = useState('Show All');
+    const [isCollapsed, setIsCollapsed] = useState(false);
+    const [isNewAlbumCollapsed, setIsNewAlbumCollapsed] = useState(false);
     useEffect(() => {
         getTopAlbumData();
         getNewAlbumData();
@@ -52,54 +57,41 @@ export default function Section() {
         <div className={styles.section}>
             <div className={styles.sectionHeader}>
                 <label>Top Albums</label>
-                <Button buttonText="Collapse" />
+                <Button buttonText={buttonText} setButtonText={setButtonText} setIsCollapsed={setIsCollapsed} />
             </div>
-            <Grid container spacing={2}>
-                {topAlbumData.map((val) => {
-                    return (
-                        <Grid item xs={12 / 7} key={val.id}>
-                            <AlbumCard img={val.image} followers={val.follows} name={val.title}/>
-                        </Grid>
-                    )
-                })}
-            </Grid>
+            {isCollapsed ?
+                <Grid container spacing={2}>
+                    {topAlbumData.map((val) => {
+                        return (
+                            <Grid item xs={12 / 7} key={val.id}>
+                                <AlbumCard img={val.image} followers={val.follows} name={val.title} />
+                            </Grid>
+                        )
+                    })}
+                </Grid>
+                :
+                <Carousel data={topAlbumData} />
+            }
             <div className={styles.lineBreak}></div>
             <div className={styles.sectionHeader}>
                 <label>New Albums</label>
-                <Button buttonText="Collapse" />
+                <Button buttonText={newAlbumButtonText} setButtonText={setNewAlbumButtonText} setIsCollapsed={setIsNewAlbumCollapsed} comingFrom="newAlbum" />
             </div>
-            <Grid container spacing={2}>
-                {newAlbumData.map((val) => {
-                    return (
-                        <Grid item xs={12 / 7} key={val.id}>
-                            <AlbumCard img={val.image} followers={val.follows} name={val.title}/>
-                        </Grid>
-                    )
-                })}
-            </Grid>
-            {/* <Grid container spacing={2}>
-                <Grid item xs={12 / 7}>
-                    <AlbumCard img={albumData.image} />
-                </Grid>
-                <Grid item xs={12 / 7}>
-                    <AlbumCard />
-                </Grid>
-                <Grid item xs={12 / 7}>
-                    <AlbumCard />
-                </Grid>
-                <Grid item xs={12 / 7}>
-                    <AlbumCard />
-                </Grid>
-                <Grid item xs={12 / 7}>
-                    <AlbumCard />
-                </Grid>
-                <Grid item xs={12 / 7}>
-                    <AlbumCard />
-                </Grid>
-                <Grid item xs={12 / 7}>
-                    <AlbumCard />
-                </Grid>
-            </Grid> */}
+            {
+                isNewAlbumCollapsed ?
+                    <Grid container spacing={2}>
+                        {newAlbumData.map((val) => {
+                            return (
+                                <Grid item xs={12 / 7} key={val.id}>
+                                    <AlbumCard img={val.image} followers={val.follows} name={val.title} />
+                                </Grid>
+                            )
+                        })}
+                    </Grid>
+                    :
+                    // <></>
+                    <Carousel data={newAlbumData} />
+            }
         </div>
     )
 }
