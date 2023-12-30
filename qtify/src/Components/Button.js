@@ -12,7 +12,7 @@ export default function Button({ buttonText, setButtonText,setIsCollapsed, comin
                 setButtonText("Collapse")
                 setIsCollapsed(true)
             }
-        } else {
+        } else if(comingFrom == "topAlbum"){
             if(text == "Collapse") {
                 setButtonText("Show All")
                 setIsCollapsed(false)

@@ -57,7 +57,7 @@ export default function Section() {
         <div className={styles.section}>
             <div className={styles.sectionHeader}>
                 <label>Top Albums</label>
-                <Button buttonText={buttonText} setButtonText={setButtonText} setIsCollapsed={setIsCollapsed} />
+                <Button buttonText={buttonText} setButtonText={setButtonText} setIsCollapsed={setIsCollapsed} comingFrom="topAlbum"/>
             </div>
             {isCollapsed ?
                 <Grid container spacing={2}>
