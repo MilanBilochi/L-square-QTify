@@ -13,7 +13,7 @@ export default function Section() {
         getNewAlbumData();
     }, [])
     const getNewAlbumData = async () => {
-        let response = await axios.get('https://qtify-backend-labs.crio.do/albums/top')
+        let response = await axios.get('https://qtify-backend-labs.crio.do/albums/new')
             .then((response) => {
                 if (response.status >= 200 && response.status < 300) {
                     return response.data;
