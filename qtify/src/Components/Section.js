@@ -20,8 +20,8 @@ export default function Section({ showButton, sectionHeader }) {
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [isNewAlbumCollapsed, setIsNewAlbumCollapsed] = useState(false);
     const handleChange = (event, newValue) => {
-        console.log(newValue)
-        console.log('Milan new value in handle change method : ' + JSON.stringify(genre[newValue-1]))
+        // console.log(newValue)
+        // console.log('Milan new value in handle change method : ' + JSON.stringify(genre[newValue-1]))
         setValue(newValue);
         
         // let newData = [...data] 
@@ -76,11 +76,11 @@ export default function Section({ showButton, sectionHeader }) {
                     }
                 })
                 .catch((error) => {
-                    console.log('Milan Error : ' + error.message)
+                    // console.log('Milan Error : ' + error.message)
                     return null
                 })
         } else {
-            console.log("Searching songs ?")
+            // console.log("Searching songs ?")
             response = await axios.get('https://qtify-backend-labs.crio.do/' + sectionHeader)
                 .then((response) => {
                     if (response.status >= 200 && response.status < 300) {
@@ -90,7 +90,7 @@ export default function Section({ showButton, sectionHeader }) {
                     }
                 })
                 .catch((error) => {
-                    console.log('Milan Error : ' + error.message)
+                    // console.log('Milan Error : ' + error.message)
                     return null
                 })
         }
@@ -104,7 +104,7 @@ export default function Section({ showButton, sectionHeader }) {
                     // console.log(genre)
                 })
             } else {
-                console.log(JSON.stringify(response))
+                // console.log(JSON.stringify(response))
                 newData = response;
             }
              
@@ -146,7 +146,7 @@ export default function Section({ showButton, sectionHeader }) {
                     {data.map((val) => {
                         return (
                             <Grid item xs={12 / 7} key={val.id}>
-                                <AlbumCard img={val.image} followers={val.follows} name={val.title}  />
+                                <AlbumCard img={val.image} followers={val.follows} name={val.title} songs={val.songs} />
                             </Grid>
                         )
                     })}

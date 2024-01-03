@@ -14,6 +14,7 @@ export default function Carousel({ data }) {
     //     useEffect(() => {
     //     swiper.slideTo(0);
     // }, [])
+
     return (
         <div className={styles.wrapper}>
 
@@ -30,7 +31,7 @@ export default function Carousel({ data }) {
                 <CarouselRightNavigation />
                 {data.map((val) => {
                     return (
-                        <SwiperSlide key={val.id}><AlbumCard img={val.image} followers={val.follows} name={val.title} liking={val.likes}/></SwiperSlide>
+                        <SwiperSlide key={val.id}><AlbumCard img={val.image} followers={val.follows} name={val.title} liking={val.likes} songs={val.songs}/></SwiperSlide>
                     )
                 })}
             </Swiper>
