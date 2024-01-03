@@ -3,9 +3,6 @@
     flex-direction: column;
     width: 159px;
     height: 232px;
-    /* remove bg color after development */
-
-    background-color: var(--color-black);
 }
 
 .firstLayer {
@@ -14,8 +11,6 @@
     height: 170px;
     border-radius: 12px 12px 0 0;
 
-    /* remove bg colot after development */
-    background-color: blue;
 }
 .chipsHome {
     padding: 6px;
@@ -28,6 +23,8 @@
     color: var(--color-white)!important;
 }
 .cardTitle {
+    display: flex;
+    overflow-y: hidden;
     font-size: small;
 }
 .cardImg {

@@ -6,14 +6,14 @@ import AlbumCard from "./AlbumCard";
 import { Navigation } from 'swiper/modules';
 import CarouselLeftNavigation from "./CarouselLeftNavigation/CarouselLeftNavigation";
 import CarouselRightNavigation from "./CarouselRightNavigation/CarouselRightNavigation";
-const Controller = ({ data }) => {
-    const swiper = useSwiper();
-    useEffect(() => {
-        // swiper.slideTo();
-    }, [data])
-    return <></>;
-}
+
+    
+
 export default function Carousel({ data }) {
+    // const swiper = useSwiper();
+    //     useEffect(() => {
+    //     swiper.slideTo(0);
+    // }, [])
     return (
         <div className={styles.wrapper}>
 
@@ -30,7 +30,7 @@ export default function Carousel({ data }) {
                 <CarouselRightNavigation />
                 {data.map((val) => {
                     return (
-                        <SwiperSlide key={val.id}><AlbumCard img={val.image} followers={val.follows} name={val.title} /></SwiperSlide>
+                        <SwiperSlide key={val.id}><AlbumCard img={val.image} followers={val.follows} name={val.title} liking={val.likes}/></SwiperSlide>
                     )
                 })}
             </Swiper>

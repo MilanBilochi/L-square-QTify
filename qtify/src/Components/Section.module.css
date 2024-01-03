@@ -11,3 +11,7 @@
     background-color: var(--color-primary);
     margin: 5px 5px;
 }
+.songTabs {
+    margin: 5px;
+    color: var(--color-white);
+}
