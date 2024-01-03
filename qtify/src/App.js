@@ -9,8 +9,8 @@ function App() {
       <div>
         <Navbar />
         <Hero />
-        {/* <Section showButton={true} sectionHeader = {"top"}/>
-        <Section showButton={true} sectionHeader={"new"}/> */}
+        <Section showButton={true} sectionHeader = {"top"}/>
+        <Section showButton={true} sectionHeader={"new"}/>
         <Section showButton={false} sectionHeader={"songs"}/>
 
       </div>
